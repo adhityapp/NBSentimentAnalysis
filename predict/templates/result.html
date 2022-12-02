@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'Result' }}{% endblock %}
+
+{% block main %}
+
+
+{% if result_present %}
+<h3 class = "mt-5" style="text-align: center;">{{name}}</h3>
+<div class="container">
+    <div class="col s12 m12 l12" >
+        <div id="piechart" style="width: 100%; min-height: 450px;"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="table-responsive"
+    style="
+    overflow-y: scroll;
+    position: static;
+    max-height: 480px;">
+        <table class="table">
+            <thead >
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Ulasan</th>
+                    <th scope="col">Prediksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i,post in Posts %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{post.no}}</td>
+                <td>{{post.ulasan}}</td>
+                <td>{{post.pred}}</td>
+            </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable({{ jml|safe }});
+        console.log(data);
+        var options = {
+            legend: {position: 'bottom', alignment: 'center', maxLines: 3},
+            slices: {
+                0: { color: '#4CAF50' },
+                1: { color: '#2196F3' },
+                2: { color: '#F44336' }
+            }
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
+
+    $(window).resize(function(){        //to make chart Responsive
+        drawChart();
+    });
+</script>
+{% endif %}
+
+
+{% endblock %}

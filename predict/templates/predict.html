@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'Predict' }}{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    <div class="jumbotron">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Select Data</h1>
+            <input class="form-control" type="file" id="myfile" name="myfile">
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary" value="load" name="load">Load</button>   <button type="submit" class="btn btn-success" value="predict" name="predict">Predict</button>
+        </form>
+    </div>
+</div>
+{% if result_present %}
+<div class="container">
+    <h3 style="text-align: center;">{{name}}</h3>    
+    <div class="table-responsive"
+    style="
+    overflow-y: scroll;
+    position: static;
+    max-height: 480px;">
+        <table class="table">
+            <thead >
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Ulasan</th>
+                </tr>
+            </thead>
+            <tbody>     
+                {% for i,post in Posts %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{post.no}}</td>
+                    <td>{{post.ulasan}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+
+
+
+
+
+
+
+{% endblock %}

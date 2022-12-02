@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'Home' }}{% endblock %}
+{% block main %}
+
+<!-- code here -->
+<div id="app">
+    <div id="main">
+        <div class="container">
+            <div class="page-heading">
+                <div class="container mt-5 bg-info">
+                    <h3 class="text-center"">Dashboard</h3>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-6 col-lg-3 col-md-6">
+                        </div>
+                        <div class="col-6 col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body px-4 py-4-5">
+                                    <div class="row">
+                                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                            <h6 class="text-muted font-semibold">Total Ulasan</h6>
+                                            <h6 class="font-extrabold mb-0">3000</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body px-4 py-4-5">
+                                    <div class="row">
+                                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                            <h6 class="text-muted font-semibold">Entitas</h6>
+                                            <h6 class="font-extrabold mb-0">44</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 col-md-6">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm text-center">
+                            {% load static %}
+                            <img src="{% static 'asset/chart.png' %}" class="img-fluid w-50" alt="...">
+                        </div>
+                        
+                    </div>
+                    <div class="row mt-3 border-1">
+
+                        <div class="col-sm text-center">
+                            <h4 class="bg-info">Wordcloud</h4>
+                            <img src="{% static 'asset/wordcloud.png' %}" class="img-fluid" alt="...">
+                        </div>
+                    </div>
+
+                    <div class="row mt-3 mb-4">
+                        <div class="col-xl">
+                            <div class="card">
+                                <div class="card-header text-center bg-info">
+                                    <h4 class="">Datasets</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="container">    
+                                        <div class="table-responsive"
+                                        style="
+                                        overflow-y: scroll;
+                                        position: static;
+                                        max-height: 480px;">
+                                            <table class="table">
+                                                <thead >
+                                                    <tr>
+                                                        <th scope="col">Id</th>
+                                                        <th scope="col">Entitas</th>
+                                                        <th scope="col">Ulasan</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>     
+                                                    {% for i,post in data %}
+                                                    <tr>
+                                                        <td>{{post.no}}</td>
+                                                        <td>{{post.entity}}</td>
+                                                        <td>{{post.ulasan}}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

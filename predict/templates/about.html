@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'About' }}{% endblock %}
+
+{% block main %}
+
+<!-- code here -->
+<div class="container text-center">
+    <div class="row mt-5">
+        <div class="h4">ANALISIS SENTIMEN FASILITAS PUBLIK KOTA MALANG PADA
+            ULASAN GOOGLE MAPS MENGGUNAKAN METODE NAÏVE BAYES
+            DENGAN SELEKSI FITUR CHI-SQUARE
+            </div>
+    </div>
+    <div class="row">
+        <div class="h6 text-primary">Adhitya Prayoga Permana</div>
+        <div class="h6 text-primary">2022</div>
+    </div>
+    <div class="row mt-5">
+        <div class="h4">Abstrak</div>
+        <p style="text-align: justify;">Pemerintah membangun fasilitas publik untuk menunjang kebutuhan masyarakat. 
+            Fasilitas publik ini perlu ditinjau kembali penggunaannya karena fasilitas publik yang 
+            pembangunannya tidak sesuai dengan kebutuhan tidak akan membantu produktivitas 
+            masyarakat serta anggaran yang telah dikeluarkan menjadi tidak efektif. Untuk meninjau 
+            kembali penggunaan fasilitas publik dapat dilakukan melalui respon masyarakat. 
+            Masyarakat biasa memberikan responnya melalui media sosial, dimana salah satu platform 
+            yang paling banyak mendapat respon masyarakat apabila berkaitan dengan suatu tempat 
+            atau lokasi adalah Google Maps. Google Maps merupakan aplikasi peta dunia milik 
+            Perusahaan Google yang memiliki fitur ulasan sehingga tempat-tempat yang tertera pada 
+            peta yang ditampilkan dapat diberikan ulasan berdasarkan pengalaman orang-orang yang 
+            pernah mengunjungi tempat tersebut. Dari fitur ulasan Google Maps tersebut maka akan 
+            diketahui bagaimana respon masyarakat terhadap suatu tempat. Penelitian ini akan 
+            memanfaatkan ulasan google maps tersebut untuk melakukan klasifikasi opini masyarakat 
+            ke dalam kelas mendukung, netral dan tidak mendukung. Metode Naïve Bayes akan 
+            digunakan untuk melakukan klasifikasi ulasan karena metode ini merupakan metode 
+            klasifikasi sederhana yang mudah diterapkan, dengan seleksi fitur Chi-Square akan 
+            digunakan untuk mereduksi fitur-fitur yang memiliki ketergantungan rendah dalam sistem 
+            sehingga dapat mengurangi beban sistem. Tujuan dari penelitian ini adalah mengukur nilai 
+            akurasi, presisi, recall, dan f-measure dari sistem yang dibuat. Uji coba sistem dilakukan 
+            sebanyak 10 kali percobaan dengan masing-masing penggunaan fitur Chi-Square sebanyak 
+            10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, dan 100%. Hasilnya penggunaan 10% 
+            fitur chi-square menghasilkan performa terbaik yaitu dengan nilai akurasi 86,94%, presisi 
+            80,42%, recall 80,42% dan f-measure 80,42%. Berdasarkan variasi rasio penggunaan 
+            seleksi fitur chi-square pada uji coba sistem, dapat disimpulkan bahwa penggunaan seleksi 
+            fitur chi-square pada klasifikasi ulasan menggunakan metode naïve bayes dapat 
+            memengaruhi nilai performa dalam sistem</p>
+    </div>
+</div>
+{% endblock %}
